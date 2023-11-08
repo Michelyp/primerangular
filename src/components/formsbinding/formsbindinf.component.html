@@ -1,0 +1,28 @@
+<div>
+    <h1>Formularios binding Model</h1>
+    <h2>{{mensaje}}</h2>
+    <!--El formulario debe tener un ID de angular indicando como valor ngForm-->
+    <form #useForm ="ngForm" (ngSubmit)="recibirDatos()">
+        <label>Nombre</label>
+        <!--Los controles de formulario deben tener un id de angular indicando como valor
+        ngModel-->
+        <!--Para indicarlo el modelo enlazado al control debemos hacerlo con la siguiente
+        sintaxis [(ngMode)]="modelo"-->
+        <input type="text" name="cajanombre" #cajanombre="ngModel" [(ngModel)]="user.nombre" required/>
+        <span style="color:red" *ngIf="cajanombre.valid == false && cajanombre.touched">El nombre es obligatorio</span><br/>
+        <label>Apellidos</label>
+        <input type="text" name="cajaapellidos" #cajaapellidos="ngModel" [(ngModel)]="user.apellidos"
+        pattern="^[A-Z]{1}[a-z]{2,}"/>
+        <span style="color:red" *ngIf="cajaapellidos.valid ==false && cajaapellidos.touched">El apellido debe comenzar con mayúscula y tener 
+        mínimo 3 caracteres</span>
+        <br/>
+        <label>Edad</label>
+        <input type="number" name="cajaedad" #cajanombre="ngModel" [(ngModel)]="user.edad"/><br/>
+        <button [disabled]="!useForm.valid">Enviar datos</button>
+    </form>
+    <hr/>
+    <h2>nombre: {{user.nombre}}</h2>
+    <h2>apellidos: {{user.apellidos}}</h2>
+    <h2>edad: {{user.edad}}</h2>
+
+</div>

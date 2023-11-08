@@ -1,0 +1,19 @@
+p {
+    color: red;
+}
+h4{
+    color: blueviolet;
+}
+.condicional{
+    color: rgb(4, 245, 165);
+}
+.par{
+    background-color: teal;
+    color: aliceblue;
+    font-weight: bold;
+}
+.impar {
+    background-color: firebrick;
+    color: azure;
+    font-weight: bold;
+}
